@@ -1,0 +1,13 @@
+{
+    "prettier.enable": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false,
+    "cSpell.words": [
+        "initred",
+        "nuxi",
+        "Nuxt",
+        "nuxtjs"
+    ],
+}
