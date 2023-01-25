@@ -1,6 +1,9 @@
-# Nuxt Module
-Example
-<pre>
+# Nuxt3 dayjs Module
+
+[dayjs](https://day.js.org/) module for [nuxt v3](https://nuxt.com/)
+
+How to use
+```ts
 export default defineNuxtConfig({
     modules: [
         '@initred/nuxt3-dayjs',
@@ -24,7 +27,7 @@ export default defineNuxtConfig({
         ],
     },   
 ],
-</pre>
+```
 
 
 ## Development
