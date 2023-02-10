@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useNuxtApp } from '#app';
-import { computed } from 'vue';
+import { computed } from 'vue'
+import { useNuxtApp } from '#app'
 const { $dayjs } = useNuxtApp()
 
 const weekDays = [0, 1, 2, 3, 4, 5, 6]
@@ -14,4 +14,3 @@ const getWeekDay = computed(() => weekDays.map(
     {{ getWeekDay }}
   </div>
 </template>
-

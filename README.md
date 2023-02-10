@@ -2,6 +2,21 @@
 
 [dayjs](https://day.js.org/) module for [nuxt v3](https://nuxt.com/)
 
+defaults config
+```ts
+export default defineNuxtModule<ModuleOptions>({
+  defaults: {
+    locales: [],
+    defaultLocale: 'en',
+    plugins: [
+      'utc',
+      'timezone'
+    ],
+    defaultTimezone: null
+  }
+})
+```
+
 How to use
 ```ts
 export default defineNuxtConfig({

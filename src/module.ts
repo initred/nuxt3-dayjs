@@ -18,8 +18,11 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     locales: [],
-    defaultLocale: null,
-    plugins: [],
+    defaultLocale: 'en',
+    plugins: [
+      'utc',
+      'timezone'
+    ],
     defaultTimezone: null
   },
   setup (options, nuxt) {
@@ -29,23 +32,26 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolve(runtimeDir, 'plugin'))
     addTemplate({
       filename: 'dayjs.plugin.mjs',
-      getContents: () => getContents(options),
+      getContents: () => getContents(options)
     })
   }
 })
 
 const getContents = ({ plugins, defaultLocale, locales, defaultTimezone }: ModuleOptions): string => {
+  locales = [...new Set(locales)]
+  plugins = [...new Set(plugins)]
+
   let contents = ''
 
-  contents += `import dayjs from 'dayjs/esm/index.js'\n`
+  contents += 'import dayjs from \'dayjs/esm/index.js\'\n'
   contents += locales?.map(locale => `import 'dayjs/esm/locale/${locale}'`).join('\n')
-  contents += `\n`
+  contents += '\n'
   contents += plugins?.map(plugin => `import ${plugin.replace(/[^A-Za-z]/g, '_')} from 'dayjs/esm/plugin/${plugin}'`).join('\n')
-  contents += `\n`
+  contents += '\n'
   contents += plugins?.map(plugin => `dayjs.extend(${plugin.replace(/[^A-Za-z]/g, '_')})`).join('\n')
-  contents += `\n`
-  if(defaultLocale) contents += `dayjs.locale('${defaultLocale}')\n`
-  if(defaultTimezone) contents += `dayjs.tz.setDefault(${defaultTimezone})\n`
-  
+  contents += '\n'
+  if (defaultLocale) { contents += `dayjs.locale('${defaultLocale}')\n` }
+  if (defaultTimezone) { contents += `dayjs.tz.setDefault('${defaultTimezone}')\n` }
+
   return contents
 }

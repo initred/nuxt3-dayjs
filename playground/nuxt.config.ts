@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   dayjs: {
     locales: ['en', 'ko'],
     defaultLocale: 'ko',
+    defaultTimezone: 'Asia/Seoul',
     plugins: [
       'relativeTime',
       'isoWeek',
@@ -19,7 +20,7 @@ export default defineNuxtConfig({
       'localizedFormat',
       'timezone',
       'updateLocale',
-      'localeData',
-    ],
+      'localeData'
+    ]
   }
 })
