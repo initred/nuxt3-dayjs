@@ -2,7 +2,7 @@
   "extends": "./playground/.nuxt/tsconfig.json",
   "compilerOptions": {
     "types": [
-      "@types/node",
+      "node",
       "dayjs/esm",
       "dayjs/esm/plugin/arraySupport",
       "dayjs/esm/plugin/bigIntSupport",
